@@ -1,0 +1,212 @@
+:root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #20263a;
+    background: #f4f6fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+button {
+    font: inherit;
+}
+
+.page {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    padding: 32px 16px;
+    background:
+        radial-gradient(ellipse at 15% 15%, rgb(224 231 255 / 70%), transparent 34%),
+        radial-gradient(ellipse at 85% 85%, rgb(221 242 239 / 65%), transparent 35%),
+        #f4f6fb;
+}
+
+.calculator {
+    width: min(100%, 380px);
+    padding: 28px;
+    border: 1px solid rgb(255 255 255 / 85%);
+    border-radius: 28px;
+    background: rgb(255 255 255 / 88%);
+    box-shadow: 0 24px 70px rgb(39 52 91 / 12%), 0 4px 12px rgb(39 52 91 / 5%);
+    backdrop-filter: blur(14px);
+}
+
+.calculator__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    margin: 0 0 5px;
+    color: #8b91a3;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 0.16em;
+}
+
+h1 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.calculator__badge {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 13px;
+    background: #edf0ff;
+    color: #6672de;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.display {
+    display: flex;
+    min-height: 132px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 18px 4px 22px;
+    text-align: right;
+}
+
+.display__previous {
+    min-height: 22px;
+    color: #9ba0af;
+    font-size: 15px;
+}
+
+.display__current {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    color: #20263a;
+    font-size: clamp(40px, 12vw, 54px);
+    font-weight: 650;
+    letter-spacing: -0.065em;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.key {
+    min-height: 62px;
+    border: 0;
+    border-radius: 18px;
+    background: #f3f4f8;
+    color: #30364a;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 560;
+    transition: background-color 120ms ease, color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.key:hover {
+    background: #e9ebf3;
+}
+
+.key:active {
+    transform: scale(0.96);
+}
+
+.key:focus-visible {
+    outline: 3px solid #aeb6ff;
+    outline-offset: 2px;
+}
+
+.key--utility {
+    background: #eef0f6;
+    color: #72798d;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.key--utility:hover {
+    background: #e4e7f0;
+    color: #4f5870;
+}
+
+.key--operator {
+    background: #eeefff;
+    color: #6974df;
+    font-size: 25px;
+}
+
+.key--operator:hover,
+.key--operator.is-selected {
+    background: #dfe2ff;
+    color: #4e5acb;
+}
+
+.key--zero {
+    grid-column: span 2;
+    text-align: left;
+    padding-left: 25px;
+}
+
+.key--equals {
+    background: #6875e5;
+    box-shadow: 0 7px 14px rgb(104 117 229 / 24%);
+    color: #fff;
+    font-size: 25px;
+}
+
+.key--equals:hover {
+    background: #5967d7;
+}
+
+.calculator__hint {
+    margin: 19px 0 0;
+    color: #a0a5b3;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        padding: 22px;
+    }
+
+    .keypad {
+        gap: 8px;
+    }
+
+    .key {
+        min-height: 58px;
+        border-radius: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
